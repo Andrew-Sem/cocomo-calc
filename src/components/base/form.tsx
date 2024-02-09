@@ -55,7 +55,7 @@ export function BaseForm() {
 		const TM = tableValues[values.type][2] * PM ** tableValues[values.type][3];
 		toast({
 			title: "Результаты",
-			description: `PM: ${PM.toFixed(2)} TM: ${TM.toFixed(2)}`,
+			description: `PM: ${PM.toFixed(2)}p/m TM: ${TM.toFixed(2)}m`,
 		});
 	}
 	return (
