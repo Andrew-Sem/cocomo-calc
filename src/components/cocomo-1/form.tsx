@@ -70,7 +70,7 @@ export function BaseForm() {
 			values.size ** tableValues[values.type][1];
 		const TM = tableValues[values.type][2] * PM ** tableValues[values.type][3];
 		toast({
-			title: "Результаты",
+			title: "Results",
 			description: `PM: ${PM.toFixed(2)}p/m TM: ${TM.toFixed(2)}m`,
 		});
 	}
@@ -83,7 +83,7 @@ export function BaseForm() {
 					name="type"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Тип проекта</FormLabel>
+							<FormLabel>Project type</FormLabel>
 							<Select onValueChange={field.onChange} defaultValue={field.value}>
 								<FormControl>
 									<SelectTrigger>
@@ -107,11 +107,11 @@ export function BaseForm() {
 					name="size"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Объем программы</FormLabel>
+							<FormLabel>Source code volume</FormLabel>
 							<FormControl>
 								<Input
 									type="number"
-									placeholder="Введите количество строк кода (тыс)"
+									placeholder="Enter the number of lines of code"
 									{...field}
 								/>
 							</FormControl>
@@ -137,7 +137,7 @@ export function BaseForm() {
 									>
 										<FormControl>
 											<SelectTrigger>
-												<SelectValue placeholder="Select a verified email to display" />
+												<SelectValue />
 											</SelectTrigger>
 										</FormControl>
 										<SelectContent>
@@ -157,7 +157,7 @@ export function BaseForm() {
 						/>
 					))}
 				</div>
-				<Button type="submit">Рассчитать PM и TM</Button>
+				<Button type="submit">Calculate</Button>
 			</form>
 		</Form>
 	);

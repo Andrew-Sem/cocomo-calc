@@ -5,7 +5,7 @@ export const BaseCard = () => {
 	return (
 		<Card>
 			<CardHeader>
-				<CardTitle>Базовый уровень</CardTitle>
+				<CardTitle>Base level</CardTitle>
 			</CardHeader>
 			<CardContent>
 				<BaseForm />

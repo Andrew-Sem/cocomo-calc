@@ -37,7 +37,6 @@ const tableValues = {
 
 export function BaseForm() {
 	const { toast } = useToast();
-	// 1. Define your form.
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -46,7 +45,6 @@ export function BaseForm() {
 		},
 	});
 
-	// 2. Define a submit handler.
 	function onSubmit(values: z.infer<typeof formSchema>) {
 		console.log(values);
 		if (!values.type) return;
@@ -54,7 +52,7 @@ export function BaseForm() {
 			tableValues[values.type][0] * values.size ** tableValues[values.type][1];
 		const TM = tableValues[values.type][2] * PM ** tableValues[values.type][3];
 		toast({
-			title: "Результаты",
+			title: "Results",
 			description: `PM: ${PM.toFixed(2)}p/m TM: ${TM.toFixed(2)}m`,
 		});
 	}
@@ -66,11 +64,11 @@ export function BaseForm() {
 					name="type"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Тип проекта</FormLabel>
+							<FormLabel>Project type</FormLabel>
 							<Select onValueChange={field.onChange} defaultValue={field.value}>
 								<FormControl>
 									<SelectTrigger>
-										<SelectValue placeholder="Select a verified email to display" />
+										<SelectValue />
 									</SelectTrigger>
 								</FormControl>
 								<SelectContent>
@@ -90,11 +88,11 @@ export function BaseForm() {
 					name="size"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Объем программы</FormLabel>
+							<FormLabel>Source code volume</FormLabel>
 							<FormControl>
 								<Input
 									type="number"
-									placeholder="Введите количество строк кода (тыс)"
+									placeholder="Enter the number of lines of code"
 									{...field}
 								/>
 							</FormControl>
@@ -102,7 +100,7 @@ export function BaseForm() {
 						</FormItem>
 					)}
 				/>
-				<Button type="submit">Рассчитать PM и TM</Button>
+				<Button type="submit">Calculate</Button>
 			</form>
 		</Form>
 	);
