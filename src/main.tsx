@@ -16,10 +16,13 @@ declare module "@tanstack/react-router" {
 		router: typeof router;
 	}
 }
+import { ThemeProvider } from "@/components/theme-provider";
 
 // biome-ignore lint/style/noNonNullAssertion: <explanation>
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+			<RouterProvider router={router} />
+		</ThemeProvider>
 	</React.StrictMode>,
 );
