@@ -1,0 +1,43 @@
+import { z } from "zod";
+
+export const availableFields = [
+	"ACAP",
+	"AEXP",
+	"PCAP",
+	"PCON",
+	"PEXP",
+	"LTEX",
+	"RELY",
+	"DATA",
+	"CPLX",
+	"RUSE",
+	"DOCU",
+	"TIME",
+	"STOR",
+	"PVOL",
+	"TOOL",
+	"SITE",
+	"SCED",
+];
+
+export const formSchema = z.object({
+	size: z.coerce.number(),
+	type: z.enum(["common", "semiIndependent", "embedded"]),
+	ACAP: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	AEXP: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	PCAP: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	PCON: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	PEXP: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	LTEX: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	RELY: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	DATA: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	CPLX: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	RUSE: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	DOCU: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	TIME: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	STOR: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	PVOL: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	TOOL: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	SITE: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+	SCED: z.enum(["veryLow", "low", "nominal", "high", "veryHigh", "extraHigh"]),
+});
