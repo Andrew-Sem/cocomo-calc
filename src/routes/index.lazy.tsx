@@ -1,4 +1,4 @@
-import { BaseCard } from "@/components/base-card";
+import { BaseCard } from "@/components/base/card";
 import { Toaster } from "@/components/ui/toaster";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
