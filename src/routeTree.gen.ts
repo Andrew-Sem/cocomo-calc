@@ -16,9 +16,15 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
+const Cocomo1LazyImport = createFileRoute('/cocomo-1')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
+
+const Cocomo1LazyRoute = Cocomo1LazyImport.update({
+  path: '/cocomo-1',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/cocomo-1.lazy').then((d) => d.Route))
 
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
@@ -33,11 +39,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
+    '/cocomo-1': {
+      preLoaderRoute: typeof Cocomo1LazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren([IndexLazyRoute])
+export const routeTree = rootRoute.addChildren([
+  IndexLazyRoute,
+  Cocomo1LazyRoute,
+])
 
 /* prettier-ignore-end */
